@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 chcp 65001 > nul
-title Linux VPS Auto Setup | OgidaniLLC
+title Linux-VPS-Auto-Setup-OgidaniLLC
 set GITHUB_USER=OgidaniLLC
 set REPO_NAME=linux-vps-portal
 set SECRET_PREFIX=TRADING
