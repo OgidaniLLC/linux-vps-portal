@@ -8,11 +8,13 @@ mkdir -p /root/Desktop
 printf '[Desktop Entry]\nName=Help\nExec=xdg-open https://note.com/ogidanillc\nType=Application\nIcon=help-browser\nTerminal=false\n' > /root/Desktop/help.desktop
 chmod +x /root/Desktop/help.desktop
 
-find "/root/.wine/drive_c/Program Files" -name "terminal64.exe" 2>/dev/null | while read exe; do
+find "/root/.wine/drive_c/Program Files" -name "terminal64.exe" -o -name "terminal.exe" 2>/dev/null | while read exe; do
     dir=$(dirname "$exe")
     name=$(basename "$dir")
-    printf '[Desktop Entry]\nName=%s\nExec=wine "%s"\nType=Application\nIcon=wine\nTerminal=false\n' "$name" "$exe" > "/root/Desktop/${name}.desktop"
-    chmod +x "/root/Desktop/${name}.desktop"
+    if ! ls /root/Desktop/ | grep -qi "$name"; then
+        printf '[Desktop Entry]\nName=%s\nExec=wine "%s"\nType=Application\nIcon=wine\nTerminal=false\n' "$name" "$exe" > "/root/Desktop/${name}.desktop"
+        chmod +x "/root/Desktop/${name}.desktop"
+    fi
 done
 
 vncserver :1 -geometry 1280x768 -depth 24 -localhost no &
