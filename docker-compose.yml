@@ -1,7 +1,6 @@
-version: '3.8'
 services:
   trading-vps:
-    image: ghcr.io/accetto/ubuntu-vnc-xfce-wine-g3:latest
+    image: accetto/ubuntu-vnc-xfce-g3:latest-wine
     container_name: trading-vps
     ports:
       - "6080:6080"
