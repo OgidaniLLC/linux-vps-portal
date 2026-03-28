@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
     gnupg2 \
     software-properties-common \
     cabextract \
+    xdg-utils \
     fonts-noto-cjk \
     fonts-ipafont \
     p7zip-full \
