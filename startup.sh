@@ -3,6 +3,15 @@ mkdir -p ~/.vnc
 echo "${VNC_PW:-vps12345}" | vncpasswd -f > ~/.vnc/passwd
 chmod 600 ~/.vnc/passwd
 
+# Japanese fonts setup
+mkdir -p /root/.wine/drive_c/windows/Fonts
+for font in /usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc /usr/share/fonts/truetype/ipafont-gothic/ipag.ttf; do
+    fname=$(basename "$font")
+    if [ -f "$font" ] && [ ! -f "/root/.wine/drive_c/windows/Fonts/$fname" ]; then
+        cp "$font" /root/.wine/drive_c/windows/Fonts/
+    fi
+done
+
 # Desktop shortcuts
 mkdir -p /root/Desktop
 printf '[Desktop Entry]\nName=Help\nExec=xdg-open https://note.com/ogidanillc\nType=Application\nIcon=help-browser\nTerminal=false\n' > /root/Desktop/help.desktop
