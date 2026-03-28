@@ -1,6 +1,8 @@
 services:
   trading-vps:
-    image: accetto/ubuntu-vnc-xfce-g3:latest-wine
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: trading-vps
     ports:
       - "6080:6080"
