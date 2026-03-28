@@ -10,6 +10,7 @@ services:
       - VNC_PW=vps12345
     volumes:
       - ./trading-data:/root/Desktop
+      - ./wine-data:/root/.wine
     logging:
       driver: "json-file"
       options:
