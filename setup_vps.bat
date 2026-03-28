@@ -36,8 +36,21 @@ echo.
 ssh root@%SERVER_IP% "sudo apt update && curl -fsSL https://get.docker.com | sh && mkdir -p trading-vps && cd trading-vps && curl -LO https://raw.githubusercontent.com/%GITHUB_USER%/%REPO_NAME%/main/docker-compose.yml && curl -LO https://raw.githubusercontent.com/%GITHUB_USER%/%REPO_NAME%/main/Dockerfile && curl -LO https://raw.githubusercontent.com/%GITHUB_USER%/%REPO_NAME%/main/startup.sh && chmod +x startup.sh && sed -i 's/VNC_PW=vps12345/VNC_PW=%VNC_PW%/g' docker-compose.yml && docker compose up -d --build"
 
 echo.
+echo 日本語フォントをVPSに転送中...
+scp "C:\Windows\Fonts\msgothic.ttc" root@%SERVER_IP%:/tmp/msgothic.ttc
+ssh root@%SERVER_IP% "docker exec trading-vps mkdir -p /root/.wine/drive_c/windows/Fonts && docker cp /tmp/msgothic.ttc trading-vps:/root/.wine/drive_c/windows/Fonts/msgothic.ttc && docker exec trading-vps wine regedit /dev/stdin <<'EOF'
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontSubstitutes]
+\"MS UI Gothic\"=\"MS UI Gothic\"
+\"MS Gothic\"=\"MS Gothic\"
+\"MS PGothic\"=\"MS PGothic\"
+EOF"
+
+echo.
 echo ======================================================
 echo 完了しました！
 echo VNC接続URL: http://%SERVER_IP%:6080/vnc.html
+echo 初期パスワード: %VNC_PW%
 echo ======================================================
 pause
