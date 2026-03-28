@@ -2,6 +2,7 @@ FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV VNC_PW=vps12345
+ENV TZ=Asia/Tokyo
 
 RUN apt-get update && apt-get install -y \
     xfce4 \
