@@ -2,8 +2,6 @@ FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV VNC_PW=vps12345
-ENV VNC_PORT=5900
-ENV NO_VNC_PORT=6080
 
 RUN apt-get update && apt-get install -y \
     xfce4 \
@@ -12,16 +10,22 @@ RUN apt-get update && apt-get install -y \
     novnc \
     websockify \
     wget \
-    dpkg \
+    gnupg2 \
+    software-properties-common \
+    cabextract \
     && dpkg --add-architecture i386 \
+    && mkdir -pm755 /etc/apt/keyrings \
+    && wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key \
+    && wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources \
     && apt-get update \
-    && apt-get install -y wine wine32 wine64 \
+    && apt-get install -y --install-recommends winehq-staging \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir -p ~/.vnc && \
-    echo "$VNC_PW" | vncpasswd -f > ~/.vnc/passwd && \
-    chmod 600 ~/.vnc/passwd
+# Wine Windows 10 mode
+RUN mkdir -p /root/.wine && \
+    WINEDLLOVERRIDES="mscoree,mshtml=" DISPLAY=:1 wineboot --init || true && \
+    wine reg add "HKEY_CURRENT_USER\Software\Wine" /v Version /t REG_SZ /d "win10" /f || true
 
 COPY startup.sh /startup.sh
 RUN chmod +x /startup.sh
