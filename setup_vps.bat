@@ -27,8 +27,7 @@ if not "%INPUT_KEY%"=="%CORRECT_KEY%" (
     exit /b 1
 )
 
-set /p VNC_PW="[3/3] VNC Password (default: vps12345, avoid ^ ! % special chars): "
-if "%VNC_PW%"=="" set VNC_PW=vps12345
+set VNC_PW=vps12345
 
 echo.
 echo [Setup] Configuring SSH key authentication...
