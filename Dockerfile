@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
     gnupg2 \
     software-properties-common \
     cabextract \
+    fonts-noto-cjk \
     && dpkg --add-architecture i386 \
     && mkdir -pm755 /etc/apt/keyrings \
     && wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key \
