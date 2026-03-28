@@ -14,7 +14,7 @@ done
 
 # Desktop shortcuts
 mkdir -p /root/Desktop
-printf '[Desktop Entry]\nName=Help\nExec=firefox https://note.com/ogidanillc\nType=Application\nIcon=help-browser\nTerminal=false\n' > /root/Desktop/help.desktop
+printf '[Desktop Entry]\nName=Help\nExec=env DISPLAY=:1 firefox https://note.com/ogidanillc\nType=Application\nIcon=help-browser\nTerminal=false\n' > /root/Desktop/help.desktop
 chmod +x /root/Desktop/help.desktop
 
 find "/root/.wine/drive_c/Program Files" -name "terminal64.exe" -o -name "terminal.exe" 2>/dev/null | while read exe; do
