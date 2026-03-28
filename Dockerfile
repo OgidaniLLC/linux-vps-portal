@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y \
     software-properties-common \
     cabextract \
     fonts-noto-cjk \
+    fonts-ipafont \
     && dpkg --add-architecture i386 \
     && mkdir -pm755 /etc/apt/keyrings \
     && wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key \
@@ -23,10 +24,14 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Wine Windows 10 mode
+# Wine Windows 10 mode + Japanese fonts
 RUN mkdir -p /root/.wine && \
     WINEDLLOVERRIDES="mscoree,mshtml=" DISPLAY=:1 wineboot --init || true && \
-    wine reg add "HKEY_CURRENT_USER\Software\Wine" /v Version /t REG_SZ /d "win10" /f || true
+    wine reg add "HKEY_CURRENT_USER\Software\Wine" /v Version /t REG_SZ /d "win10" /f || true && \
+    mkdir -p /root/.wine/drive_c/windows/Fonts && \
+    cp /usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc /root/.wine/drive_c/windows/Fonts/ && \
+    printf 'REGEDIT4\n\n[HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Fonts]\n"Noto Sans CJK JP Regular (TrueType)"="NotoSansCJK-Regular.ttc"\n\n[HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows NT\\CurrentVersion\\FontSubstitutes]\n"MS UI Gothic"="Noto Sans CJK JP Regular"\n"MS Gothic"="Noto Sans CJK JP Regular"\n"MS PGothic"="Noto Sans CJK JP Regular"\n"Yu Gothic"="Noto Sans CJK JP Regular"\n"Meiryo"="Noto Sans CJK JP Regular"\n' > /tmp/jp-fonts.reg && \
+    wine regedit /tmp/jp-fonts.reg || true
 
 COPY startup.sh /startup.sh
 RUN chmod +x /startup.sh
