@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  trading-vps:
+    image: ghcr.io/vnc-docker/ubuntu-vnc-xfce-vnc-wine
+    container_name: trading-vps
+    ports:
+      - "6080:6080"
+    environment:
+      - VNC_PW=vps12345
+    volumes:
+      - ./trading-data:/root/Desktop
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10mb"
+        max-file: "3"
+    restart: always

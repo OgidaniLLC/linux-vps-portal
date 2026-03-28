@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"><title>Trading VPS Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 text-white p-8">
+    <div class="max-w-md mx-auto bg-white text-slate-800 p-8 rounded-3xl shadow-2xl">
+        <h1 class="text-2xl font-bold mb-4">Trading VPS Portal</h1>
+        <p class="text-sm mb-6 text-slate-500">合言葉を入力してコマンドを生成してください。</p>
+        <input id="key" type="text" placeholder="今月の合言葉" class="w-full p-3 border rounded-xl mb-4">
+        <input id="name" type="text" placeholder="お名前" class="w-full p-3 border rounded-xl mb-4">
+        <button onclick="gen()" class="w-full bg-blue-600 text-white p-3 rounded-xl font-bold">生成する</button>
+        <textarea id="res" class="w-full mt-6 p-3 bg-slate-100 rounded-xl text-xs h-24 hidden" readonly></textarea>
+    </div>
+    <script>
+        function gen() {
+            const k = document.getElementById('key').value.toUpperCase();
+            const n = document.getElementById('name').value;
+            const now = new Date();
+            const ok = "TRADING" + now.getFullYear() + (now.getMonth()+1).toString().padStart(2,'0');
+            if(k !== ok) return alert("合言葉が違います");
+            const cmd = "sudo apt update && curl -fsSL https://get.docker.com | sh && mkdir -p trading-vps && cd trading-vps && curl -LO https://raw.githubusercontent.com/OgidaniLLC/linux-vps-portal/main/docker-compose.yml && docker compose up -d # ID:" + n;
+            const r = document.getElementById('res');
+            r.value = cmd; r.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
