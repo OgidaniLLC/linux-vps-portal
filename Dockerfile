@@ -15,7 +15,6 @@ RUN apt-get update && apt-get install -y \
     software-properties-common \
     cabextract \
     xdg-utils \
-    chromium-browser \
     fonts-noto-cjk \
     fonts-ipafont \
     p7zip-full \
@@ -25,6 +24,9 @@ RUN apt-get update && apt-get install -y \
     && wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources \
     && apt-get update \
     && apt-get install -y --install-recommends winehq-staging \
+    && add-apt-repository -y ppa:xtradeb/apps \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends chromium \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
