@@ -1,2 +1,5 @@
-trading-data/
+.DS_Store
+Thumbs.db
 *.log
+release-files/*.zip
+src/
