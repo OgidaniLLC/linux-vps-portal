@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y \
     software-properties-common \
     cabextract \
     xdg-utils \
+    firefox \
     fonts-noto-cjk \
     fonts-ipafont \
     p7zip-full \
