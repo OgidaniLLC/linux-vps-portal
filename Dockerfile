@@ -41,15 +41,8 @@ RUN wget -O /usr/local/bin/winetricks https://raw.githubusercontent.com/Winetric
 
 # Desktop shortcuts
 RUN mkdir -p /root/Desktop && \
-    cat > /root/Desktop/ヘルプ・使い方.desktop << 'EOF'
-[Desktop Entry]
-Name=ヘルプ・使い方
-Exec=xdg-open https://note.com/ogidanillc
-Type=Application
-Icon=help-browser
-Terminal=false
-EOF
-    chmod +x /root/Desktop/ヘルプ・使い方.desktop
+    printf '[Desktop Entry]\nName=ヘルプ・使い方\nExec=xdg-open https://note.com/ogidanillc\nType=Application\nIcon=help-browser\nTerminal=false\n' > /root/Desktop/help.desktop && \
+    chmod +x /root/Desktop/help.desktop
 
 COPY startup.sh /startup.sh
 RUN chmod +x /startup.sh
