@@ -39,11 +39,6 @@
                     <input id="key" type="text" placeholder="例: TRADING202606"
                         class="w-full px-4 py-3 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-300 focus:outline-none focus:border-blue-400 input-focus transition-all duration-200">
                 </div>
-                <div>
-                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">お名前 / 識別ID</label>
-                    <input id="name" type="text" placeholder="例: 山田太郎"
-                        class="w-full px-4 py-3 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-300 focus:outline-none focus:border-blue-400 input-focus transition-all duration-200">
-                </div>
             </div>
 
             <button onclick="gen()"
@@ -73,24 +68,26 @@
         </div>
 
         <!-- Footer -->
-        <p class="text-center text-slate-500 text-xs mt-6">© 2026 OgidaniLLC — Professional Trading Solutions</p>
+        <div class="text-center mt-6 space-y-2">
+            <div class="flex items-center justify-center gap-4 text-xs">
+                <a href="https://github.com/OgidaniLLC/linux-vps-portal#readme" target="_blank"
+                    class="text-slate-400 hover:text-blue-400 transition-colors">使い方・セットアップ手順</a>
+                <span class="text-slate-600">|</span>
+                <a href="https://github.com/OgidaniLLC/linux-vps-portal/blob/main/TROUBLESHOOTING.md" target="_blank"
+                    class="text-slate-400 hover:text-blue-400 transition-colors">トラブルシューティング</a>
+            </div>
+            <p class="text-slate-600 text-xs">© 2026 OgidaniLLC — Professional Trading Solutions</p>
+        </div>
     </div>
 
     <script>
         function gen() {
             const k = document.getElementById('key').value.trim().toUpperCase();
-            const n = document.getElementById('name').value.trim();
             const errEl = document.getElementById('error-msg');
             const resultArea = document.getElementById('result-area');
 
             errEl.classList.add('hidden');
             resultArea.classList.remove('visible');
-
-            if (!n) {
-                errEl.textContent = 'お名前 / 識別IDを入力してください。';
-                errEl.classList.remove('hidden');
-                return;
-            }
 
             const now = new Date();
             const ok = "TRADING" + now.getFullYear() + (now.getMonth() + 1).toString().padStart(2, '0');
@@ -101,7 +98,7 @@
                 return;
             }
 
-            const cmd = "sudo apt update && curl -fsSL https://get.docker.com | sh && mkdir -p trading-vps && cd trading-vps && curl -LO https://raw.githubusercontent.com/OgidaniLLC/linux-vps-portal/main/docker-compose.yml && docker compose up -d # ID:" + n;
+            const cmd = "sudo apt update && curl -fsSL https://get.docker.com | sh && mkdir -p trading-vps && cd trading-vps && curl -LO https://raw.githubusercontent.com/OgidaniLLC/linux-vps-portal/main/docker-compose.yml && docker compose up -d";
             document.getElementById('res').value = cmd;
             resultArea.classList.add('visible');
         }

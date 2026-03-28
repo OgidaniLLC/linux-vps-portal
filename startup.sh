@@ -26,6 +26,8 @@ find "/root/.wine/drive_c/Program Files" -name "terminal64.exe" -o -name "termin
     fi
 done
 
+xdg-settings set default-web-browser chromium.desktop 2>/dev/null || update-alternatives --set x-www-browser /usr/bin/chromium 2>/dev/null || true
+
 vncserver :1 -geometry 1280x768 -depth 24 -localhost no &
 sleep 3
 

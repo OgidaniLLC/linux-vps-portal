@@ -123,6 +123,8 @@ for %%F in (
     )
 )
 
+ssh -i "%KEY_FILE%" -o StrictHostKeyChecking=no root@%SERVER_IP% "docker exec trading-vps bash -c 'xdg-settings set default-web-browser chromium.desktop 2>/dev/null || update-alternatives --set x-www-browser /usr/bin/chromium'" > nul 2>&1
+
 cls
 echo ======================================================
 echo  ALL STEPS COMPLETE!
