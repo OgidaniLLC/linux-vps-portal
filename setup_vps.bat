@@ -37,15 +37,26 @@ ssh root@%SERVER_IP% "sudo apt update && curl -fsSL https://get.docker.com | sh 
 
 echo.
 echo 日本語フォントをVPSに転送中...
-scp "C:\Windows\Fonts\msgothic.ttc" root@%SERVER_IP%:/tmp/msgothic.ttc
-ssh root@%SERVER_IP% "docker exec trading-vps mkdir -p /root/.wine/drive_c/windows/Fonts && docker cp /tmp/msgothic.ttc trading-vps:/root/.wine/drive_c/windows/Fonts/msgothic.ttc && docker exec trading-vps wine regedit /dev/stdin <<'EOF'
-REGEDIT4
-
-[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontSubstitutes]
-\"MS UI Gothic\"=\"MS UI Gothic\"
-\"MS Gothic\"=\"MS Gothic\"
-\"MS PGothic\"=\"MS PGothic\"
-EOF"
+for %%F in (
+    msgothic.ttc
+    meiryo.ttc
+    meiryob.ttc
+    meiryoi.ttc
+    meiryobi.ttc
+    YuGothM.ttc
+    YuGothB.ttc
+    YuGothL.ttc
+    yumin.ttf
+    yumindb.ttf
+    yuminl.ttf
+    msmincho.ttc
+) do (
+    if exist "C:\Windows\Fonts\%%F" (
+        scp "C:\Windows\Fonts\%%F" root@%SERVER_IP%:/tmp/%%F
+        ssh root@%SERVER_IP% "docker cp /tmp/%%F trading-vps:/root/.wine/drive_c/windows/Fonts/%%F"
+    )
+)
+echo フォント転送完了
 
 echo.
 echo ======================================================
