@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y \
     cabextract \
     fonts-noto-cjk \
     fonts-ipafont \
+    p7zip-full \
     && dpkg --add-architecture i386 \
     && mkdir -pm755 /etc/apt/keyrings \
     && wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key \
@@ -32,6 +33,23 @@ RUN mkdir -p /root/.wine && \
     cp /usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc /root/.wine/drive_c/windows/Fonts/ && \
     printf 'REGEDIT4\n\n[HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Fonts]\n"Noto Sans CJK JP Regular (TrueType)"="NotoSansCJK-Regular.ttc"\n\n[HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows NT\\CurrentVersion\\FontSubstitutes]\n"MS UI Gothic"="Noto Sans CJK JP Regular"\n"MS Gothic"="Noto Sans CJK JP Regular"\n"MS PGothic"="Noto Sans CJK JP Regular"\n"Yu Gothic"="Noto Sans CJK JP Regular"\n"Meiryo"="Noto Sans CJK JP Regular"\n' > /tmp/jp-fonts.reg && \
     wine regedit /tmp/jp-fonts.reg || true
+
+# winetricks fakejapanese for Japanese font support
+RUN wget -O /usr/local/bin/winetricks https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks && \
+    chmod +x /usr/local/bin/winetricks && \
+    DISPLAY=:1 winetricks -q fakejapanese || true
+
+# Desktop shortcuts
+RUN mkdir -p /root/Desktop && \
+    cat > /root/Desktop/ヘルプ・使い方.desktop << 'EOF'
+[Desktop Entry]
+Name=ヘルプ・使い方
+Exec=xdg-open https://note.com/ogidanillc
+Type=Application
+Icon=help-browser
+Terminal=false
+EOF
+    chmod +x /root/Desktop/ヘルプ・使い方.desktop
 
 COPY startup.sh /startup.sh
 RUN chmod +x /startup.sh
