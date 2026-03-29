@@ -62,6 +62,24 @@ ssh root@[VPSのIP] "docker exec trading-vps bash -c 'echo 新パスワード | 
 
 ---
 
+### デフォルトブラウザが開かない
+**原因:** XFCEのタスクバーランチャーにブラウザが設定されていない。
+**対処:** SSHで以下を実行。
+```
+ssh root@[VPSのIP] "docker exec trading-vps bash -c 'sed -i \"s|Exec=exo-open --launch WebBrowser|Exec=chromium --no-sandbox|g\" /root/.config/xfce4/panel/launcher-*/*.desktop' && docker restart trading-vps"
+```
+
+---
+
+### デスクトップにHelpショートカットがない
+**原因:** コンテナの再起動でショートカットが生成されていない。
+**対処:** コンテナを再起動する。
+```
+ssh root@[VPSのIP] "cd ~/trading-vps && docker compose restart"
+```
+
+---
+
 ## Claude.ai に相談する方法
 
 1. エラーメッセージをコピー
