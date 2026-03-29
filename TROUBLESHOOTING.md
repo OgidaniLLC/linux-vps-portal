@@ -96,6 +96,11 @@ ssh root@[VPSのIP] "cd ~/trading-vps && docker compose restart"
 - 最初から一緒に進めたいとき（「このリポジトリを使ってVPSを構築したい」と伝えるだけでOK）
 - カスタマイズしたいとき（フォント追加、MT5の設定など）
 
+**より高度なサポートを受けたい方（経験者向け）：**
+VSCode + [Claude Code拡張](https://marketplace.visualstudio.com/items?itemName=Anthropic.claude-code) を使うと、Claudeがターミナル操作やファイル編集を直接行いながらサポートできます。エラーの診断からコマンド実行まで一貫して任せることができます。
+
+---
+
 **プランについて：**
 無料版は使用制限があるため、以下のいずれかを推奨します。
 - **Proプラン**: 月$20固定（気軽に使いたい方向け）
