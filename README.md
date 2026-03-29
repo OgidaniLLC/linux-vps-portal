@@ -75,7 +75,7 @@ sudo apt update && curl -fsSL https://get.docker.com | sh && mkdir -p trading-vp
 | IPAゴシック | Linux・Wine共通の日本語表示 |
 
 ### パターンAで追加転送（WindowsPC → VPS）
-お使いのPCに存在する場合のみ転送されます。それ以外のフォントを追加したい場合は[手動手順](TROUBLESHOOTING.md#mt4mt5が文字化けする)を参照してください。
+お使いのPCに存在する場合のみ転送されます。それ以外のフォントを追加したい場合は[こちら](TROUBLESHOOTING.md#mt4mt5が文字化けする)を参照してください。
 
 | フォント | 種類 |
 |---------|------|
