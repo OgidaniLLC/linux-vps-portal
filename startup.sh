@@ -26,7 +26,10 @@ find "/root/.wine/drive_c/Program Files" -name "terminal64.exe" -o -name "termin
     fi
 done
 
-xdg-settings set default-web-browser chromium.desktop 2>/dev/null || update-alternatives --set x-www-browser /usr/bin/chromium 2>/dev/null || true
+xdg-settings set default-web-browser chromium.desktop 2>/dev/null || true
+for f in /root/.config/xfce4/panel/launcher-*/; do
+    find "$f" -name "*.desktop" -exec sed -i "s|Exec=exo-open --launch WebBrowser|Exec=chromium --no-sandbox|g" {} \;
+done
 
 vncserver :1 -geometry 1280x768 -depth 24 -localhost no &
 sleep 3
