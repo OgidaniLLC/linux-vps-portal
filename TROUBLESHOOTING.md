@@ -103,7 +103,8 @@ ssh root@[VPSのIP] "cd ~/trading-vps && docker compose restart"
 
 **使い方：**
 1. [Claude.ai](https://claude.ai) を開く
-2. 以下のように貼り付ける
+2. `setup_vps.bat` をチャットに添付する（Claudeがコードを参照して的確に対応できます）
+3. 以下のように貼り付ける
 
 ```
 linux-vps-portal を使ってVPSをセットアップしたいです。
