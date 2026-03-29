@@ -111,7 +111,7 @@ VSCode + [Claude Code拡張](https://marketplace.visualstudio.com/items?itemName
 
 **使い方：**
 1. [Claude.ai](https://claude.ai) を開く
-2. `setup_vps.bat` をチャットに添付する（Claudeがコードを参照して的確に対応できます）
+2. `setup_vps.bat` をチャットに添付する（AIがコードを参照して的確に対応できます）
 3. 以下のように貼り付ける
 
 ```
@@ -120,6 +120,16 @@ linux-vps-portal を使ってVPSをセットアップしたいです。
 
 [状況やエラー内容があれば記載]
 ```
+
+**スムーズに進めるためのプロンプト例：**
+
+```
+setup_vps.bat（添付）の内容に従って、VPS（IP: [VPSのIPアドレス]）を
+セットアップしたいです。
+PowerShellにコマンドをコピペして自分で実行します。
+```
+
+最初からVPSのIPアドレスと実行方法を伝えると、質問なしで即作業に入れます。
 
 ---
 
