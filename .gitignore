@@ -4,3 +4,4 @@ Thumbs.db
 *.log
 release-files/*.zip
 src/
+setup_vps.bat
