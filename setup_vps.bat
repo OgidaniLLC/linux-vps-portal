@@ -4,7 +4,6 @@ chcp 65001 > nul
 title Linux-VPS-Auto-Setup-OgidaniLLC
 set GITHUB_USER=OgidaniLLC
 set REPO_NAME=linux-vps-portal
-set SECRET_PREFIX=TRADING
 set KEY_FILE=%USERPROFILE%\.ssh\trading_vps_key
 
 cls
@@ -22,11 +21,7 @@ echo.
 set /p SERVER_IP="VPS IP Address: "
 set /p INPUT_KEY="Secret Key: "
 
-set YYYY=%date:~0,4%
-set MM=%date:~5,2%
-set CORRECT_KEY=%SECRET_PREFIX%%YYYY%%MM%
-
-if not "%INPUT_KEY%"=="%CORRECT_KEY%" (
+if not "%INPUT_KEY%"=="LinuxVPS8675" (
     echo.
     echo [ERROR] Invalid secret key. Please contact support.
     pause
