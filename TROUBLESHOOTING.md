@@ -34,12 +34,18 @@ ssh root@[VPSのIP] "cd ~/trading-vps && docker compose restart"
 
 ---
 
-### MT5が文字化けする
+### MT4/MT5が文字化けする
 **原因:** Wine内に日本語フォントがない。
 **対処:** setup_vps.bat を再実行するか、ローカルのコマンドプロンプトで以下を実行。
 ```
 scp "C:\Windows\Fonts\msgothic.ttc" root@[VPSのIP]:/tmp/
 ssh root@[VPSのIP] "docker cp /tmp/msgothic.ttc trading-vps:/root/.wine/drive_c/windows/Fonts/"
+```
+
+任意のフォントを追加したい場合は、`C:\Windows\Fonts\` 内の `.ttf` または `.ttc` ファイルを同様の手順で転送できます。
+```
+scp "C:\Windows\Fonts\[フォントファイル名]" root@[VPSのIP]:/tmp/
+ssh root@[VPSのIP] "docker cp /tmp/[フォントファイル名] trading-vps:/root/.wine/drive_c/windows/Fonts/"
 ```
 
 ---
