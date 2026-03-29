@@ -110,9 +110,11 @@ sudo apt update && curl -fsSL https://get.docker.com | sh && mkdir -p trading-vp
 ## 🖥️ 動作確認・推奨スペック
 
 ### 動作確認済み環境
-| VPS | CPU | RAM | ストレージ |
-|-----|-----|-----|-----------|
-| CONTABO Cloud VPS 10 | 4 vCPU | 8 GB | 75 GB NVMe |
+| VPS | OS | CPU | RAM | ストレージ |
+|-----|----|-----|-----|-----------|
+| CONTABO Cloud VPS 10 | Ubuntu 22.04 | 4 vCPU | 8 GB | 75 GB NVMe |
+
+> Docker コンテナは Ubuntu 22.04 ベースで動作します。
 
 ### 推奨スペック
 | 項目 | 最低 | 推奨 |
