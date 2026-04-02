@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y \
     && wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key \
     && wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources \
     && apt-get update \
-    && apt-get install -y --install-recommends winehq-staging \
+    && apt-get install -y --install-recommends winehq-staging=10.0~jammy-1 \
     && add-apt-repository -y ppa:xtradeb/apps \
     && apt-get update \
     && apt-get install -y --no-install-recommends chromium \
