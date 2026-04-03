@@ -17,7 +17,7 @@ mkdir -p /root/Desktop
 printf '[Desktop Entry]\nName=Help\nExec=env DISPLAY=:1 chromium --no-sandbox https://note.com/fx_systradeea/n/nb5cf4ed8b087\nType=Application\nIcon=help-browser\nTerminal=false\n' > /root/Desktop/help.desktop
 chmod +x /root/Desktop/help.desktop
 
-find "/root/.wine/drive_c/Program Files" -name "terminal64.exe" -o -name "terminal.exe" 2>/dev/null | while read exe; do
+find "/root/.wine/drive_c/Program Files" "/root/.wine/drive_c/Program Files (x86)" -name "terminal64.exe" -o -name "terminal.exe" 2>/dev/null | while read exe; do
     dir=$(dirname "$exe")
     name=$(basename "$dir")
     if ! ls /root/Desktop/ | grep -qi "$name"; then
