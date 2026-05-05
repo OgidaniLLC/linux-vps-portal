@@ -11,7 +11,7 @@ MTのサーバー一覧には応答速度（ms）が表示されており、一�
 
 ## ダウンロード
 
-[**こちらからダウンロード**](https://github.com/OgidaniLLC/linux-vps-portal/releases/tag/v-mql-latest) → `AutoRecon.zip`
+[**こちらからダウンロード**](https://github.com/OgidaniLLC/linux-vps-portal/releases/tag/v-latest) → `AutoRecon.zip`
 
 > 解凍には [7-Zip](https://www.7-zip.org/) とパスワードが必要です。
 
