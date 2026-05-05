@@ -9,6 +9,12 @@ MTのサーバー一覧には応答速度（ms）が表示されており、一�
 
 > 画像の例では「Access Server JP 8（159.10ms）」が最速。再接続するとこの一番上のサーバーに自動的につなぎ直されます。
 
+## ダウンロード
+
+[**こちらからダウンロード**](https://github.com/OgidaniLLC/linux-vps-portal/releases/tag/v-mql-latest) → `AutoRecon.zip`
+
+> 解凍には [7-Zip](https://www.7-zip.org/) とパスワードが必要です。
+
 ---
 
 ## 対応プラットフォーム
