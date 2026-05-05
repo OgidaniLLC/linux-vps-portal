@@ -3,6 +3,7 @@
 Thumbs.db
 *.log
 release-files/*.zip
-release-files/Windows/
+release-files/Windows/private/
+release-files/MQL/
 src/
 setup_vps.bat
