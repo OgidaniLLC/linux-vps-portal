@@ -5,6 +5,14 @@
 
 ---
 
+## ダウンロード
+
+[**こちらからダウンロード**](https://github.com/OgidaniLLC/linux-vps-portal/releases/tag/v-latest) → `MTSyncAll.zip`
+
+> 解凍には [7-Zip](https://www.7-zip.org/) とパスワードが必要です。
+
+---
+
 ## 1. 概要
 
 MTSyncAll コピートレードは、超低遅延でMT5/MT4間のポジションをコピーするEAシステム。
