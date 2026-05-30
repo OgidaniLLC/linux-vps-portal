@@ -4,6 +4,14 @@ Myfxbook のアカウント情報（残高・損益・ポジション等）を M
 
 ---
 
+## ダウンロード
+
+[**こちらからダウンロード**](https://github.com/OgidaniLLC/linux-vps-portal/releases/tag/v-latest) → `MyfxExpertAdvisor.zip`
+
+> 解凍には [7-Zip](https://www.7-zip.org/) とパスワードが必要です。
+
+---
+
 ## 動作環境
 
 | 項目 | 内容 |
