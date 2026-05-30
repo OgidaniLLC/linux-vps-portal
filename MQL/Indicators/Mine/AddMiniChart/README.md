@@ -22,8 +22,10 @@ MT5チャートの左下にミニチャートを表示するインジケータ�
 
 ```
 AddMiniChart/
-├── AddMiniChart.mq5   ← インジケーター本体
-└── MiniChart.mqh      ← ミニチャートクラス（ライブラリ）
+├── AddMiniChart.ex5   ← コンパイル済みインジケーター（すぐ使える）
+├── AddMiniChart.mq5   ← ソースコード
+├── MiniChart.mqh      ← ミニチャートクラス（ライブラリ）
+└── USER_MANUAL.md     ← ユーザーマニュアル
 ```
 
 ## インストール
