@@ -29,6 +29,20 @@ AccountStatus はサブウィンドウに口座の残高推移をグラフ表示
 
 `AccountStatus.ex5`（または `.ex4`）を MT5/MT4 のデータフォルダに配置します。
 
+### ファイル構成
+
+```
+AccountStatus/
+├── AccountStatus.ex5        ← MT5用
+├── AccountStatus.ex4        ← MT4用
+├── AccountStatus(EN).ex5    ← MT5用（英語版）
+├── AccountStatus(EN).ex4    ← MT4用（英語版）
+├── USER_MANUAL.md           ← 詳細マニュアル（日本語）
+└── USER_MANUAL.en.md        ← 詳細マニュアル（英語）
+```
+
+### 配置場所
+
 **MT5:** MT5データフォルダ内の `MQL5/Indicators/` に配置してください。
 
 **MT4:** MT4データフォルダ内の `MQL4/Indicators/` に配置してください。

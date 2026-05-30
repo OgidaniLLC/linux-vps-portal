@@ -27,7 +27,19 @@ It visualizes balance, free margin, and maximum balance over time based on past 
 
 ### File Placement
 
-Place `AccountStatus.ex5` (or `.ex4`) in the MT5/MT4 data folder.
+### File Structure
+
+```
+AccountStatus/
+├── AccountStatus.ex5        ← For MT5 (Japanese)
+├── AccountStatus.ex4        ← For MT4 (Japanese)
+├── AccountStatus(EN).ex5    ← For MT5 (English)
+├── AccountStatus(EN).ex4    ← For MT4 (English)
+├── USER_MANUAL.md           ← User manual (Japanese)
+└── USER_MANUAL.en.md        ← User manual (English)
+```
+
+### File Placement
 
 **MT5:** Place in `MQL5/Indicators/` inside the MT5 data folder.
 

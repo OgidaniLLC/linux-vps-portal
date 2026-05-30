@@ -4,14 +4,6 @@ MT5/MT4チャートのサブウィンドウに口座残高の推移をグラフ�
 
 [English](README.en.md)
 
-## ダウンロード
-
-[**こちらからダウンロード**](https://github.com/OgidaniLLC/linux-vps-portal/releases/tag/v-latest) → `AccountStatus.zip`
-
-> 解凍には [7-Zip](https://www.7-zip.org/) とパスワードが必要です。
-
----
-
 ## 特徴
 
 - 過去の取引履歴から残高推移・最大残高・余剰証拠金をラインで表示
@@ -41,9 +33,12 @@ MT5/MT4チャートのサブウィンドウに口座残高の推移をグラフ�
 
 ```
 AccountStatus/
-├── AccountStatus.ex5      ← MT5用
-├── AccountStatus.ex4      ← MT4用
-└── USER_MANUAL.md         ← 詳細マニュアル
+├── AccountStatus.ex5        ← MT5用
+├── AccountStatus.ex4        ← MT4用
+├── AccountStatus(EN).ex5    ← MT5用（英語版）
+├── AccountStatus(EN).ex4    ← MT4用（英語版）
+├── USER_MANUAL.md           ← 詳細マニュアル（日本語）
+└── USER_MANUAL.en.md        ← 詳細マニュアル（英語）
 ```
 
 ## パラメータ

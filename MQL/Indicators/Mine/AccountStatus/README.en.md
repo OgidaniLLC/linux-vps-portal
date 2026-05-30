@@ -4,14 +4,6 @@ An indicator that displays account balance history as a graph in a sub-window of
 
 [日本語](README.md)
 
-## Download
-
-[**Download here**](https://github.com/OgidaniLLC/linux-vps-portal/releases/tag/v-latest) → `AccountStatus.zip`
-
-> [7-Zip](https://www.7-zip.org/) and a password are required to extract.
-
----
-
 ## Features
 
 - Displays balance history, maximum balance, and free margin as lines based on past trade history
@@ -41,10 +33,12 @@ An indicator that displays account balance history as a graph in a sub-window of
 
 ```
 AccountStatus/
-├── AccountStatus.ex5      ← For MT5
-├── AccountStatus.ex4      ← For MT4
-└── USER_MANUAL.md         ← User manual (Japanese)
-└── USER_MANUAL.en.md      ← User manual (English)
+├── AccountStatus.ex5        ← For MT5 (Japanese)
+├── AccountStatus.ex4        ← For MT4 (Japanese)
+├── AccountStatus(EN).ex5    ← For MT5 (English)
+├── AccountStatus(EN).ex4    ← For MT4 (English)
+├── USER_MANUAL.md           ← User manual (Japanese)
+└── USER_MANUAL.en.md        ← User manual (English)
 ```
 
 ## Parameters
