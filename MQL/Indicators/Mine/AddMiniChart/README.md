@@ -2,6 +2,14 @@
 
 MT5チャートの左下にミニチャートを表示するインジケーター。
 
+## ダウンロード
+
+[**こちらからダウンロード**](https://github.com/OgidaniLLC/linux-vps-portal/releases/tag/v-latest) → `AddMiniChart.zip`
+
+> 解凍には [7-Zip](https://www.7-zip.org/) とパスワードが必要です。
+
+---
+
 ## 特徴
 
 - チャート左下に上位時間足のミニチャートを表示
