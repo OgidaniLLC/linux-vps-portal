@@ -1,5 +1,7 @@
 # AccountStatus
 
+![AccountStatus](https://raw.githubusercontent.com/OgidaniLLC/linux-vps-portal/main/header-images/AccountStatus_header.png)
+
 MT5/MT4チャートのサブウィンドウに口座残高の推移をグラフ表示するインジケーター。
 
 [English](README.en.md)

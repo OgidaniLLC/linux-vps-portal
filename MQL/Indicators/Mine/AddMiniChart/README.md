@@ -1,5 +1,7 @@
 # AddMiniChart
 
+![AddMiniChart](https://raw.githubusercontent.com/OgidaniLLC/linux-vps-portal/main/header-images/AddMiniChart_header.png)
+
 MT5チャートの左下にミニチャートを表示するインジケーター。
 
 ## ダウンロード

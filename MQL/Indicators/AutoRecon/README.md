@@ -1,5 +1,7 @@
 # AutoRecon (free)
 
+![AutoRecon](https://raw.githubusercontent.com/OgidaniLLC/linux-vps-portal/main/header-images/AutoRecon_header.png)
+
 MT4/MT5のサーバー接続を自動的に維持するインジケーターです。
 
 MTのサーバー一覧には応答速度（ms）が表示されており、一番上が最速サーバーです。  

@@ -1,5 +1,7 @@
 # AccountStatus
 
+![AccountStatus](https://raw.githubusercontent.com/OgidaniLLC/linux-vps-portal/main/header-images/AccountStatus_header.png)
+
 An indicator that displays account balance history as a graph in a sub-window of MT5/MT4.
 
 [日本語](README.md)
