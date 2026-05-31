@@ -1,6 +1,6 @@
 # AccountStatus User Manual
 
-**Version:** 1.0 (2026-05-31)
+**Version:** 1.01 (2026-05-31)
 **Target:** AccountStatus.mq5 / AccountStatus.mq4 (MT5 / MT4)
 
 ---
@@ -150,7 +150,16 @@ The popup disappears automatically approximately 3 seconds after the cursor stop
 
 ---
 
-## 9. License
+## 9. Changelog
+
+| Version | Date | Changes |
+|---|---|---|
+| 1.01 | 2026-05-31 | English popup display for EN version |
+| 1.00 | 2026-05-31 | Initial release |
+
+---
+
+## 10. License
 
 Copyright © 2026 OgidaniLLC. All rights reserved.
 

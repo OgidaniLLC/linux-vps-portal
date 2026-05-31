@@ -1,6 +1,6 @@
 # AccountStatus ユーザーマニュアル
 
-**Version:** 1.0（2026-05-31）
+**Version:** 1.01（2026-05-31）
 **対象:** AccountStatus.mq5 / AccountStatus.mq4（MT5 / MT4 対応）
 
 ---
@@ -152,7 +152,16 @@ AccountStatus/
 
 ---
 
-## 9. ライセンス
+## 9. 修正履歴
+
+| バージョン | 日付 | 内容 |
+|---|---|---|
+| 1.01 | 2026-05-31 | 英語版（EN）のポップアップ表示を英語化 |
+| 1.00 | 2026-05-31 | 初版リリース |
+
+---
+
+## 10. ライセンス
 
 Copyright © 2026 OgidaniLLC. All rights reserved.
 
