@@ -33,9 +33,18 @@ if grep -qr "exo-open --launch WebBrowser" /root/.config/xfce4/panel/ 2>/dev/nul
     done
 fi
 
-vncserver :1 -geometry 1280x768 -depth 24 -localhost no &
-sleep 3
+# VNC(:1) は既に動いていなければ起動。古いロック残骸を掃除してから立てる。
+# (コンテナ再起動やプロセス残骸での二重起動を防止。二重起動するとnoVNCに接続できなくなる)
+if ! pgrep -f "Xtigervnc :1" > /dev/null 2>&1; then
+    vncserver -kill :1 2>/dev/null || true
+    rm -f /tmp/.X1-lock /tmp/.X11-unix/X1 2>/dev/null || true
+    vncserver :1 -geometry 1280x768 -depth 24 -localhost no &
+    sleep 3
+fi
 
-websockify --web=/usr/share/novnc/ 6080 localhost:5901 &
+# websockify(6080) は1本だけ。二重起動を防止(親死亡で子だけ残りリスナー喪失する事故も防ぐ)。
+if ! pgrep -f "websockify.*6080" > /dev/null 2>&1; then
+    websockify --web=/usr/share/novnc/ 6080 localhost:5901 &
+fi
 
 wait
