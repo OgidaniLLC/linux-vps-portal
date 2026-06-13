@@ -13,7 +13,7 @@
 
 > 解凍には [7-Zip](https://www.7-zip.org/) とパスワードが必要です。
 
-詳しい使い方は zip 同梱の `USER_MANUAL.md` を参照してください。
+詳しい使い方は [USER_MANUAL.md](./USER_MANUAL.md) を参照してください。
 
 ---
 
@@ -51,6 +51,6 @@ Myfxbook公式API `get-community-outlook.json` のみを利用します。Webス
 ## ライセンス・免責
 
 Copyright © 2026 OgidaniLLC. All rights reserved.
-β版テスター募集フェーズにつきテスト期間中は無償。第三者への再配布・転売・リバースエンジニアリング等を禁止します。本ソフトウェアは「現状有姿」で提供され、使用に伴ういかなる損害についても責任を負いません。実取引でのご使用は十分に検証の上、自己責任でお願いします。
+第三者への再配布・転売・リバースエンジニアリング等を禁止します。本ソフトウェアは「現状有姿」で提供され、使用に伴ういかなる損害についても責任を負いません。実取引でのご使用は十分に検証の上、自己責任でお願いします。
 
 - 公式サイト: https://ogidani.com/ ／ note: https://note.com/fx_systradeea ／ X: https://x.com/FX_SysTradeEA
