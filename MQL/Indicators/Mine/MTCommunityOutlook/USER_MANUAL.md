@@ -1,6 +1,6 @@
 # MTCommunityOutlook ユーザーマニュアル
 
-**Version:** 1.11（2026-06-12）
+**Version:** 1.12（2026-06-14）
 **対象:** MTCommunityOutlook（MT5 / MT4 インジケーター）
 
 ---
@@ -127,4 +127,5 @@ Copyright © 2026 OgidaniLLC. All rights reserved.
 
 | バージョン | 日付 | 内容 |
 |---|---|---|
+| 1.12 | 2026-06-14 | session永続流用・取得間隔の最適化（連続アクセス抑制）・キャッシュ鮮度判定の不具合修正・ログをエラー系のみに整理 |
 | 1.11 | 2026-06-12 | Community Outlook表示・3サイズ・人気度フィルター・資格情報V2暗号化・キャッシュ鮮度管理 |
