@@ -2,6 +2,7 @@
 .claude/
 Thumbs.db
 *.log
+.env
 release-files/*.zip
 release-files/Windows/private/
 release-files/MQL/

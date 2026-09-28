@@ -38,10 +38,17 @@ Dockerを使用した、トレーディング専用のLinux(Ubuntu)デスクト�
 
 ### パターンB：クイックスタート（手動導入）
 サーバーにSSHログイン後、以下の1行コマンドを貼り付けてください。
+**VNC接続用パスワードはコマンド内で自動生成され、`.env`に保存されます**
+（固定の初期パスワードは使いません。誰でも推測できる値のまま放置される
+事故を防ぐため）。
 
 ```bash
-sudo apt update && curl -fsSL https://get.docker.com | sh && mkdir -p trading-vps && cd trading-vps && curl -LO https://raw.githubusercontent.com/OgidaniLLC/linux-vps-portal/main/docker-compose.yml && docker compose up -d
+sudo apt update && curl -fsSL https://get.docker.com | sh && mkdir -p trading-vps && cd trading-vps && curl -LO https://raw.githubusercontent.com/OgidaniLLC/linux-vps-portal/main/docker-compose.yml && echo "VNC_PW=$(openssl rand -base64 18 | tr -dc 'a-zA-Z0-9' | head -c 20)" > .env && cat .env && docker compose up -d
 ```
+
+実行後に表示される`VNC_PW=...`の行が、VNC接続時に使う実際のパスワードです。
+**必ずこの画面から控えてください**（`.env`ファイル自体はgit管理外で、
+サーバー上の`cat .env`でいつでも再確認できます）。
 
 > **注意：** パターンBは最小構成のセットアップです。以下は自動では行われないため、必要に応じて個別に対応してください。
 > - 日本語フォント転送 → MT5が文字化けする場合は [TROUBLESHOOTING.md](TROUBLESHOOTING.md) を参照
@@ -97,7 +104,13 @@ sudo apt update && curl -fsSL https://get.docker.com | sh && mkdir -p trading-vp
 日常のチャート監視やEA設定に使用します。
 * **URL**: `http://[あなたのサーバーIP]:6080/vnc.html`
 * **操作**: 画面中央の「Connect」ボタンをクリック
-* **初期パスワード**: `vps12345`
+* **パスワード**: セットアップ時に自動生成された値（パターンBの場合は
+  導入コマンド実行時の表示内容、またはサーバー上で
+  `cat trading-vps/.env` を実行して確認）。**固定の初期パスワードは
+  存在しません** — 全ユーザー共通の値を使い続けるリスクを避けるため、
+  導入のたびにユニークな値が生成される設計に変更しました
+  （2026-09-29、外部からVNCポートへの到達性とデフォルトパスワードの
+  組み合わせによる不正アクセスリスクを踏まえて対応）。
 
 ---
 

@@ -1,6 +1,17 @@
 #!/bin/bash
 mkdir -p ~/.vnc
-echo "${VNC_PW:-vps12345}" | vncpasswd -f > ~/.vnc/passwd
+
+# 2026-09-29: VNC_PW未設定時に固定パスワード(vps12345)へ静かにフォールバック
+# していたのを廃止。同じ値が全ユーザー共通のデフォルトとしてリポジトリに
+# 公開されており、VNCポートが外部到達可能な環境と組み合わさると不正アクセス
+# リスクになるため、未設定なら起動を止めて気づけるようにする。
+if [ -z "${VNC_PW:-}" ]; then
+    echo "エラー: 環境変数 VNC_PW が設定されていません。" >&2
+    echo "  .env ファイルに VNC_PW=<推測困難なパスワード> を設定してください" \
+         "（README.md のクイックスタート手順を参照）。" >&2
+    exit 1
+fi
+echo "${VNC_PW}" | vncpasswd -f > ~/.vnc/passwd
 chmod 600 ~/.vnc/passwd
 
 # Japanese fonts setup

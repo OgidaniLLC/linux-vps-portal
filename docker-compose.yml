@@ -6,8 +6,10 @@ services:
     container_name: trading-vps
     ports:
       - "6080:6080"
+    env_file:
+      - .env
     environment:
-      - VNC_PW=vps12345
+      - VNC_PW=${VNC_PW}
     volumes:
       - ./trading-data:/root/Desktop
       - ./wine-data:/root/.wine
